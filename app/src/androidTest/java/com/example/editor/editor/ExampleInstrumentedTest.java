@@ -1,4 +1,4 @@
-package com.example.chenjc.editor;
+package com.example.editor.editor;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

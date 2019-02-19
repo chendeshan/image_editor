@@ -1,4 +1,4 @@
-package com.example.chenjc;
+package com.example.editor;
 
 import android.app.Activity;
 import android.os.Bundle;
