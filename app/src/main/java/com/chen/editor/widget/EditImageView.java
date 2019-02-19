@@ -13,12 +13,10 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.net.Uri;
-import android.os.Environment;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ImageView;
-
 
 import com.chen.editor.widget.action.Action;
 import com.chen.editor.widget.action.BrightnessAction;
@@ -34,7 +32,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import static com.chen.editor.widget.action.Action.ActionType.BRIGHTNESS;
 import static com.chen.editor.widget.action.Action.ActionType.CONTRAST;
@@ -80,8 +77,6 @@ public class EditImageView extends ImageView {
 
     private Rect mDrawDesRect = new Rect();
 
-    private String mImageSavePath = Environment.getExternalStorageDirectory().getPath() + "/pois/editImage/";
-
     private EditState mCurrentState = EditState.IDLE;
 
     public EditImageView(Context context) {
@@ -104,17 +99,17 @@ public class EditImageView extends ImageView {
 //        涂鸦
 
         initPaint();
-        initBitmap();
     }
 
-    private void initBitmap() {
-        mOrgainBitmap = getBitmap(mImageSavePath + "/eye3.jpg", 1763, 1014);
-
-        if (mOrgainBitmap == null) {
+    public void setImage(Bitmap bitmap) {
+        if (bitmap == null) {
             return;
         }
 
+        mOrgainBitmap = bitmap;
         mTempBitmap = mOrgainBitmap.copy(Bitmap.Config.ARGB_8888, true);
+
+        invalidate();
     }
 
     private void initPaint() {
@@ -196,8 +191,8 @@ public class EditImageView extends ImageView {
         return mTempBitmap;
     }
 
-    public Bitmap getScaleBitmap() {
-        Bitmap origainBitmap = getBitmap(mImageSavePath + "/eye3.jpg", 1763, 1014);
+    public Bitmap getScaleBitmap(Bitmap origainBitmap) {
+
         Bitmap resultBitmap = origainBitmap.copy(Bitmap.Config.ARGB_8888, true);
 
         recycleBitmap(origainBitmap);
@@ -332,14 +327,14 @@ public class EditImageView extends ImageView {
         invalidate();
     }
 
-    public void saveImage() {
-        if (!ensurePathAccess(mImageSavePath) || mTempBitmap == null) {
+    public void saveImage(String imagePath, String imageName, Bitmap origainBitmap) {
+        if (!ensurePathAccess(imagePath) || mTempBitmap == null) {
             return;
         }
 
-        Bitmap scaleBitmap = getScaleBitmap();
+        Bitmap scaleBitmap = getScaleBitmap(origainBitmap);
 
-        String imageSavePath = mImageSavePath + "/" + UUID.randomUUID().toString() + ".jpg";
+        String imageSavePath = imagePath + "/" + imageName + ".jpg";
         Uri uri = saveToSDCard(scaleBitmap, imageSavePath);
         notifyScanImage(uri);
 
