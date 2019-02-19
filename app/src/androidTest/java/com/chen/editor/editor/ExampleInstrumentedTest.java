@@ -1,4 +1,4 @@
-package com.example.editor.editor;
+package com.chen.editor.editor;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

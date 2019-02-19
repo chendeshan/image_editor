@@ -1,4 +1,4 @@
-package com.example.editor;
+package com.chen.editor;
 
 import android.app.Activity;
 import android.os.Bundle;
