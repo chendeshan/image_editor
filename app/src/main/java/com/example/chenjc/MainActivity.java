@@ -1,7 +1,8 @@
-package com.example.chenjc.editor;
+package com.example.chenjc;
 
 import android.app.Activity;
 import android.os.Bundle;
+
 
 public class MainActivity extends Activity {
 
