@@ -61,7 +61,7 @@
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:layout_marginTop="30dp"
-                android:background="@mipmap/activity_image_adjust_brightness_button"
+                android:background="@mipmap/activity_main_brightness_button"
                 android:contentDescription="@string/app_name"
                 android:onClick="brightnessClick" />
 
@@ -77,9 +77,31 @@
         </LinearLayout>
     </ScrollView>
 
-    <com.chen.editor.widget.EditImageView
-        android:id="@+id/activity_main_edit_image"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent">
+
+        <com.chen.editor.widget.EditImageView
+            android:id="@+id/activity_main_edit_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <SeekBar
+            android:id="@+id/activity_main_brightness_seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp" />
+
+        <SeekBar
+            android:id="@+id/activity_main_contrast_seek_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp" />
+
+    </RelativeLayout>
+
 
 </LinearLayout>
