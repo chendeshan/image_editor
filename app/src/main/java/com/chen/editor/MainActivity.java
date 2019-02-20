@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.View;
 
 import com.chen.editor.widget.EditImageView;
 
@@ -43,6 +44,33 @@ public class MainActivity extends Activity {
         mEditImageView = (EditImageView) findViewById(R.id.activity_main_edit_image);
         Bitmap bitmap = getBitmap();
         mEditImageView.setImage(bitmap);
+    }
+
+    public void withdrawClick(View view) {
+
+    }
+
+    public void penClick(View view) {
+
+    }
+
+    public void rotateClick(View view) {
+
+    }
+
+    public void reverseXClick(View view) {
+
+    }
+
+    public void reverseYClick(View view) {
+
+    }
+
+    public void brightnessClick(View view) {
+
+    }
+
+    public void contrastClick(View view) {
 
     }
 }
