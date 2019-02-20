@@ -47,23 +47,23 @@ public class MainActivity extends Activity {
     }
 
     public void withdrawClick(View view) {
-
+        mEditImageView.withDraw();
     }
 
     public void penClick(View view) {
-
+        mEditImageView.drawLine();
     }
 
     public void rotateClick(View view) {
-
+        mEditImageView.rotate();
     }
 
     public void reverseXClick(View view) {
-
+        mEditImageView.reverseX();
     }
 
     public void reverseYClick(View view) {
-
+        mEditImageView.reverseY();
     }
 
     public void brightnessClick(View view) {
