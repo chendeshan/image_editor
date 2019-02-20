@@ -120,7 +120,7 @@ public class MainActivity extends Activity {
     private SeekBar.OnSeekBarChangeListener mOnBrightnessSeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+            mEditImageView.brightness(progress);
         }
 
         @Override
@@ -130,14 +130,14 @@ public class MainActivity extends Activity {
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-
+            mEditImageView.brightnessDone(seekBar.getProgress());
         }
     };
 
     private SeekBar.OnSeekBarChangeListener mOnContrastSeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+            mEditImageView.contrastDone(progress);
         }
 
         @Override
@@ -147,7 +147,7 @@ public class MainActivity extends Activity {
 
         @Override
         public void onStopTrackingTouch(SeekBar seekBar) {
-
+            mEditImageView.contrastDone(seekBar.getProgress());
         }
     };
 
