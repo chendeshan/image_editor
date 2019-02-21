@@ -137,7 +137,7 @@ public class MainActivity extends Activity {
     private SeekBar.OnSeekBarChangeListener mOnContrastSeekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-            mEditImageView.contrastDone(progress);
+            mEditImageView.contrast(progress);
         }
 
         @Override
